@@ -1,0 +1,125 @@
+/* Modern Resume Creator Styles */
+:root {
+    --primary-color: #2c7da0;
+    --text-color: #333;
+    --border-color: #ddd;
+    --background-color: #f9f9f9;
+    --section-spacing: 1.5rem;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-builder {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 100%;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-section {
+    background: #fff;
+    padding: 1.5rem;
+    margin-bottom: var(--section-spacing);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.education-entry, .experience-entry, .project-entry {
+    background: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.courses-grid, .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a6985;
+}
+
+#add-project {
+    background-color: #4caf50;
+    margin-top: 1rem;
+}
+
+#add-project:hover {
+    background-color: #3d8b40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-builder {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .courses-grid, .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-grid, .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

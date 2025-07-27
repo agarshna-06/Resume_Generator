@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Creator</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <section class="resume-builder">
+        <div class="container">
+            <h1>Resume Creator</h1>
+            <form id="resume-form">
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="text" name="degree" placeholder="Degree (e.g., B.Tech. in Computer Science & Engineering)" required>
+                    <input type="text" name="graduation_year" placeholder="Graduation Year" required>
+                    <input type="text" name="tagline" placeholder="Professional Tagline" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="phone" placeholder="Phone" required>
+                    <input type="text" name="linkedin" placeholder="LinkedIn URL (e.g., linkedin.com/in/username)" required>
+                    <input type="text" name="github" placeholder="GitHub URL (e.g., github.com/username)" required>
+                </div>
+
+                <div class="form-section">
+                    <h2>Education</h2>
+                    <div class="education-entry">
+                        <input type="text" name="college_name" placeholder="College/University Name" required>
+                        <input type="text" name="college_degree" placeholder="Degree Program" required>
+                        <input type="text" name="college_duration" placeholder="Duration (MM/YYYY - MM/YYYY)" required>
+                    </div>
+                    <div class="education-entry">
+                        <input type="text" name="school_name" placeholder="School Name" required>
+                        <input type="text" name="school_program" placeholder="Program" required>
+                        <input type="text" name="school_duration" placeholder="Duration (MM/YYYY - MM/YYYY)" required>
+                        <input type="text" name="school_score" placeholder="Score (%)" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Relevant Courses</h2>
+                    <div class="courses-grid">
+                        <input type="text" name="course1" placeholder="Course 1">
+                        <input type="text" name="course2" placeholder="Course 2">
+                        <input type="text" name="course3" placeholder="Course 3">
+                        <input type="text" name="course4" placeholder="Course 4">
+                        <input type="text" name="course5" placeholder="Course 5">
+                        <input type="text" name="course6" placeholder="Course 6">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Experience</h2>
+                    <div class="experience-entry">
+                        <input type="text" name="job_title" placeholder="Job Title" required>
+                        <input type="text" name="company" placeholder="Company Name" required>
+                        <input type="text" name="duration" placeholder="Duration (MM/YYYY - MM/YYYY)" required>
+                        <textarea name="job_description" placeholder="Job Description and Achievements" rows="4"></textarea>
+                        <input type="text" name="technologies" placeholder="Technologies Used" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Selected Projects</h2>
+                    <div class="project-entry">
+                        <input type="text" name="project_title" placeholder="Project Title">
+                        <textarea name="project_description" placeholder="Project Description" rows="3"></textarea>
+                        <input type="text" name="project_technologies" placeholder="Technologies Used">
+                    </div>
+                    <button type="button" id="add-project">Add Another Project</button>
+                </div>
+
+                <div class="form-section">
+                    <h2>Achievements</h2>
+                    <textarea name="achievements" placeholder="List your achievements (one per line)" rows="4"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Skills</h2>
+                    <div class="skills-grid">
+                        <input type="text" name="skill1" placeholder="Skill 1 (e.g., Python)">
+                        <input type="text" name="skill2" placeholder="Skill 2">
+                        <input type="text" name="skill3" placeholder="Skill 3">
+                        <input type="text" name="skill4" placeholder="Skill 4">
+                        <input type="text" name="skill5" placeholder="Skill 5">
+                        <input type="text" name="skill6" placeholder="Skill 6">
+                    </div>
+                </div>
+
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="output-container" class="output-container" style="display: none;"></div>
+
+    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
+    <script src="script2.js"></script>
+</body>
+
+</html>
+
+
+<!-- ```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .resume-builder {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section h2 {
+            margin-top: 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        #output-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="resume-builder">
+        <div class="container">
+            <h1>Resume Creator</h1>
+            <form id="resume-form">
+                <div class="form-section">
+                    <h2><span class="grip-icon"></span>Personal Information</h2>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="text" name="title" placeholder="Job Title" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="text" name="linkedin" placeholder="LinkedIn Profile">
+                    <input type="text" name="github" placeholder="GitHub Profile">
+                    <input type="text" name="gdev" placeholder="Google Developer Profile">
+                </div>
+
+                <div class="form-section">
+                    <h2>Professional Summary</h2>
+                    <textarea name="summary" placeholder="Brief summary about yourself" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Work Experience</h2>
+                    <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Education</h2>
+                    <textarea name="education" placeholder="Your academic background" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Skills</h2>
+                    <textarea name="skills" placeholder="Your key skills" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Certifications</h2>
+                    <textarea name="certifications" placeholder="Relevant certifications" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Projects</h2>
+                    <textarea name="projects" placeholder="Notable projects" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Achievements</h2>
+                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Languages</h2>
+                    <textarea name="languages" placeholder="Languages you speak" rows="3"></textarea>
+                </div>
+
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="output-container" class="output-container" style="display: none;"></div>
+
+    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
+    <script src="new.js"></script>
+</body>
+
+</html>
+``` -->
